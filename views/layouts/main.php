@@ -1,4 +1,5 @@
 <?php
+
 use yii\helpers\Html;
 // use yii\bootstrap\Nav;
 // use yii\bootstrap\NavBar;
@@ -10,7 +11,6 @@ use app\assets\AppAsset;
 
 AppAsset::register ( $this );
 ?>
-
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
 <head>
@@ -36,7 +36,6 @@ $(function() {
     }
 });
 </script>
-    <?php $this->head()?>
 </head>
 <body>
 
@@ -45,7 +44,13 @@ $(function() {
 
     <div data-role="header" class="header_box">
         <header class="top w980 mc">
-            <div class="t-login">您好，欢迎访问有情友礼网 ！<span>showchen000</span><a class="" href="####">个人中心</a><a class="" href="####">退出</a></div>
+  
+         <?php if (! \Yii::$app->user->isGuest){
+         	echo '<div class="t-login">您好，欢迎访问有情友礼网 ！<span>'.  Yii::$app->user->identity->uname .'</span><a class="" href="####">个人中心</a><a class="" href="?r=member/logout">退出</a></div>';
+         	            
+         }
+         	?>
+<!--             <div class="t-login">您好，欢迎访问有情友礼网 ！<span>xxxx</span><a class="" href="####">个人中心</a><a class="" href="####">退出</a></div> -->
             <div class="logo fl"><a href="####" title="有情友礼--相亲相爱在一起!"></a></div>
             <div class="search fr">
                 <div class="search-box">
@@ -57,14 +62,16 @@ $(function() {
                 </div>
             
             </div>
-            <div class="userBtn fr">
-                <a href="index.php?r=member/login">登录</a>
-                <a href="index.php?r=member/signup" class="l">注册</a>
-            </div>
+             <?php if (Yii::$app->user->isguest){
+            echo "<div class=\"userBtn fr\">";
+            echo " <a href=\"index.php?r=member/login\">登录</a>";
+            echo " <a href=\"index.php?r=member/signup\" class=\"l\">注册</a></div>";
+            
+             }?>
             <div class="clear"></div>
             
             <ul class="menu">
-                <li><a class="a1" href="" title="首页"><span class="btn">首页</span></a></li>
+                <li><a class="a1" href="/" title="首页"><span class="btn">首页</span></a></li>
                 <li><a class="a2" href="index.php?r=site/article" title="精选方案"><span class="btn">精选方案<span class="t"></span></span></a>
                     <ul class="menu2">
                         <li><a href="" title="精选方案">精选方案</a></li>
@@ -73,7 +80,7 @@ $(function() {
                     </ul>
                 </li>
                 <li><a class="a3" href="index.php?r=site/story" title="情理故事"><span class="btn">情理故事</span></a></li>
-                <li><a class="a4" href="index.php?r=site/share" title="分享创意"><span class="btn">分享创意</span></a></li>
+                <li><a class="a4" <?php echo !\Yii::$app->user->isGuest?'href="?r=site/share"':'href="?r=member/login"'   ?> title="分享创意"><span class="btn">分享创意</span></a></li>
                 <li><a class="a5" href="index.php?r=site/download" title="下载手机版"><span class="btn">下载手机版</span></a></li>
             </ul>
             
@@ -136,7 +143,6 @@ $(function() {
 </div>
    
        
-
 
 </body>
 </html>

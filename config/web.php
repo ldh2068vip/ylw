@@ -39,7 +39,8 @@ clVdGrxAYgOhm2V2Ntk8Le9lxguDb50B1YDZAYeqQUiE89C8jw==',
             'class' => 'yii\caching\FileCache',
         ],
         'user' => [
-            'identityClass' => 'app\models\User',
+//             'identityClass' => 'app\models\User',
+        		'identityClass' => 'app\models\Zcyh',
             'enableAutoLogin' => true,
         ],
         'errorHandler' => [

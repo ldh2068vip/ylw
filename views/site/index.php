@@ -3,7 +3,6 @@
 $this->title = '有情有礼';
 ?>
 
-
  <section class="banner m_b20">
 		<div class="w980 mc">
        	  	<div class="a1"><img src="images/banner01.jpg" width="459" height="258"></div>

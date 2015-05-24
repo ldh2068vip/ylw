@@ -15,15 +15,15 @@ class User extends \yii\base\Object implements \yii\web\IdentityInterface
             'id' => '100',
             'username' => 'admin',
             'password' => 'admin',
-            'authKey' => 'test100key',
-            'accessToken' => '100-token',
+//             'authKey' => 'test100key',
+//             'accessToken' => '100-token',
         ],
         '101' => [
             'id' => '101',
             'username' => 'demo',
             'password' => 'demo',
-            'authKey' => 'test101key',
-            'accessToken' => '101-token',
+//             'authKey' => 'test101key',
+//             'accessToken' => '101-token',
         ],
     ];
 
@@ -32,7 +32,7 @@ class User extends \yii\base\Object implements \yii\web\IdentityInterface
      */
     public static function findIdentity($id)
     {
-        return isset(self::$users[$id]) ? new static(self::$users[$id]) : null;
+//         return isset(self::$users[$id]) ? new static(self::$users[$id]) : null;
     }
 
     /**
@@ -57,13 +57,13 @@ class User extends \yii\base\Object implements \yii\web\IdentityInterface
      */
     public static function findByUsername($username)
     {
-        foreach (self::$users as $user) {
-            if (strcasecmp($user['username'], $username) === 0) {
-                return new static($user);
-            }
-        }
+//         foreach (self::$users as $user) {
+//             if (strcasecmp($user['username'], $username) === 0) {
+//                 return new static($user);
+//             }
+//         }
 
-        return null;
+//         return null;
     }
 
     /**
@@ -79,7 +79,7 @@ class User extends \yii\base\Object implements \yii\web\IdentityInterface
      */
     public function getAuthKey()
     {
-        return $this->authKey;
+//         return $this->authKey;
     }
 
     /**
@@ -87,7 +87,7 @@ class User extends \yii\base\Object implements \yii\web\IdentityInterface
      */
     public function validateAuthKey($authKey)
     {
-        return $this->authKey === $authKey;
+//         return $this->authKey === $authKey;
     }
 
     /**
